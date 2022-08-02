@@ -1,24 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Select_button : MonoBehaviour
 {
     [SerializeField] GameObject Event;
-    [SerializeField] int Type; // 1 - Left&Right / 2 - Dress
-    [SerializeField] int ButtonNum; // Left - 1 Right - 2 / Dress 1 ~ 8
+    [SerializeField] int Type; // 1 - Left&Right / 2 - Dress / 3 - Ghacha
+    [SerializeField] int ButtonNum; // Left - 1 Right - 2 / Dress 1 ~ 8 / Yes -1 No - 2
+
+    [SerializeField] GameObject Check_Message;
+    [SerializeField] Text Check_text;
 
     private bool Top;
 
     private void OnMouseUp()
     {
-        if (Type == 1)
+        if (Type == 1) // List - Left&Right
         {
             if (ButtonNum == 1)
             {
-                if ( Event.GetComponent<Category>().Category_num != 1)
+                if (Event.GetComponent<Category>().Category_num != 1)
                 {
-                    Event.GetComponent<Category>().Category_num --;
+                    Event.GetComponent<Category>().Category_num--;
                 }
             }
             if (ButtonNum == 2)
@@ -29,7 +33,7 @@ public class Select_button : MonoBehaviour
                 }
             }
         }
-        if (Type == 2)
+        if (Type == 2) // Dress
         {
             if (ButtonNum == 1)
             {
@@ -134,6 +138,23 @@ public class Select_button : MonoBehaviour
                     Event.GetComponent<State>().Dress_Top = 0;
                     Top = false;
                 }
+            }
+        }
+        if (Type == 3) // Ghacha
+        {
+            if (ButtonNum == 1)
+            {
+                Check_Message.SetActive(true);
+                Check_text.text = "정말 돌리시겠습니까?";
+            }
+            if (ButtonNum == 2)
+            {
+                Event.GetComponent<Ghacha>().isActived = true;
+                Check_Message.SetActive(false);
+            }
+            if (ButtonNum == 3)
+            {
+                Check_Message.SetActive(false);
             }
         }
     }
