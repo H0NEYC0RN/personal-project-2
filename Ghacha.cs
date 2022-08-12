@@ -22,6 +22,7 @@ public class Ghacha : MonoBehaviour
     [SerializeField] int Rank_C;
 
     private int Item_num;
+    private string Item_check;
     private int Range_min;
     private int Range_max;
 
@@ -29,22 +30,33 @@ public class Ghacha : MonoBehaviour
     {
         if (isActived == true)
         {
-            if (this.GetComponent<State>().Gold >= 500)
+            
+            if (this.GetComponent<Data_Manager>().nowData.Item.Count != 26) // N = 전체 아이템의 갯수
             {
-                this.GetComponent<State>().Gold = this.GetComponent<State>().Gold - 500;
-                Rank();
-                isActived = false;
+                Debug.Log((this.GetComponent<Data_Manager>().nowData.Item.Count) + "개의 아이템 보유중");
+
+                if (this.GetComponent<Data_Manager>().nowData.Money >= 500)
+                {
+                    this.GetComponent<Data_Manager>().nowData.Money = this.GetComponent<Data_Manager>().nowData.Money - 500;
+                    Rank();
+                    isActived = false;
+                }
+                else
+                {
+                    Check_Message.SetActive(true);
+                    Check_button.SetActive(false);
+                    Message_Text.text = "골드가 부족합니다.";
+                    isActived = false;
+                }
             }
             else
             {
                 Check_Message.SetActive(true);
                 Check_button.SetActive(false);
-                Message_Text.text = "골드가 부족합니다.";
+                Message_Text.text = "모든 아이템을 보유중입니다.";
                 isActived = false;
             }
         }
-
-
     }
 
     private void Rank()
@@ -114,14 +126,23 @@ public class Ghacha : MonoBehaviour
             Item_num = Random.Range(Range_min, Range_max);
         }
 
-        Result();
+        Item_check = Item_num.ToString();
+
+        if (this.GetComponent<Data_Manager>().nowData.Item.Contains(Item_check))
+        {
+            Item();
+        }
+        else
+        {
+            Result();
+        }
     }
 
     private void Result()
     {
+        this.GetComponent<Data_Manager>().nowData.Item.Add(Item_num.ToString());
         Debug.Log("Per : " + Rank_Per);
         Debug.Log("Item Rank : " + Item_num);
         Debug.Log("Item num : " + Item_num);
     }
-
 }

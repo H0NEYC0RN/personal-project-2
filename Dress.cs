@@ -21,7 +21,7 @@ public class Dress : MonoBehaviour
     {
         Alpha();
 
-        if (Event.GetComponent<State>().Dress_Top == 1)
+        if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 1)
         {
             if (Event.GetComponent<Category>().Category_num == 1)
             {
@@ -43,7 +43,7 @@ public class Dress : MonoBehaviour
             Dress_render();
 
         }
-        if (Event.GetComponent<State>().Dress_Top == 2)
+        if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 2)
         {
             if (Event.GetComponent<Category>().Category_num == 1)
             {
@@ -65,7 +65,7 @@ public class Dress : MonoBehaviour
             Dress_render();
 
         }
-        if (Event.GetComponent<State>().Dress_Top == 3)
+        if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 3)
         {
             if (Event.GetComponent<Category>().Category_num == 1)
             {
@@ -87,7 +87,7 @@ public class Dress : MonoBehaviour
             Dress_render();
 
         }
-        if (Event.GetComponent<State>().Dress_Top == 4)
+        if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 4)
         {
             if (Event.GetComponent<Category>().Category_num == 1)
             {
@@ -109,7 +109,7 @@ public class Dress : MonoBehaviour
             Dress_render();
 
         }
-        if (Event.GetComponent<State>().Dress_Top == 5)
+        if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 5)
         {
             if (Event.GetComponent<Category>().Category_num == 1)
             {
@@ -131,7 +131,7 @@ public class Dress : MonoBehaviour
             Dress_render();
 
         }
-        if (Event.GetComponent<State>().Dress_Top == 6)
+        if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 6)
         {
             if (Event.GetComponent<Category>().Category_num == 1)
             {
@@ -153,7 +153,7 @@ public class Dress : MonoBehaviour
             Dress_render();
 
         }
-        if (Event.GetComponent<State>().Dress_Top == 7)
+        if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 7)
         {
             if (Event.GetComponent<Category>().Category_num == 1)
             {
@@ -175,7 +175,7 @@ public class Dress : MonoBehaviour
             Dress_render();
 
         }
-        if (Event.GetComponent<State>().Dress_Top == 8)
+        if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 8)
         {
             if (Event.GetComponent<Category>().Category_num == 1)
             {
@@ -201,7 +201,7 @@ public class Dress : MonoBehaviour
 
     private void Alpha()
     {
-        if (Event.GetComponent<State>().Dress_Top == 0)
+        if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 0)
         {
             Render.color = new Color(0, 0, 0, 0);
         }

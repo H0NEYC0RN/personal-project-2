@@ -37,105 +37,105 @@ public class Select_button : MonoBehaviour
         {
             if (ButtonNum == 1)
             {
-                if (Event.GetComponent<State>().Dress_Top != 1)
+                if (GetComponent<Data_Manager>().nowData.Dressed_Top != 1)
                 {
-                    Event.GetComponent<State>().Dress_Top = 1;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 1;
                     Top = true;
                 }
-                else if (Event.GetComponent<State>().Dress_Top == 1)
+                else if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 1)
                 {
-                    Event.GetComponent<State>().Dress_Top = 0;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 0;
                     Top = false;
                 }
             }
             if (ButtonNum == 2)
             {
-                if (Event.GetComponent<State>().Dress_Top != 2)
+                if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top != 2)
                 {
-                    Event.GetComponent<State>().Dress_Top = 2;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 2;
                     Top = true;
                 }
-                else if (Event.GetComponent<State>().Dress_Top == 2)
+                else if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 2)
                 {
-                    Event.GetComponent<State>().Dress_Top = 0;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 0;
                     Top = false;
                 }
             }
             if (ButtonNum == 3)
             {
-                if (Event.GetComponent<State>().Dress_Top != 3)
+                if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top != 3)
                 {
-                    Event.GetComponent<State>().Dress_Top = 3;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 3;
                     Top = true;
                 }
-                else if (Event.GetComponent<State>().Dress_Top == 3)
+                else if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 3)
                 {
-                    Event.GetComponent<State>().Dress_Top = 0;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 0;
                     Top = false;
                 }
             }
             if (ButtonNum == 4)
             {
-                if (Event.GetComponent<State>().Dress_Top != 4)
+                if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top != 4)
                 {
-                    Event.GetComponent<State>().Dress_Top = 4;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 4;
                     Top = true;
                 }
-                else if (Event.GetComponent<State>().Dress_Top == 4)
+                else if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 4)
                 {
-                    Event.GetComponent<State>().Dress_Top = 0;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 0;
                     Top = false;
                 }
             }
             if (ButtonNum == 5)
             {
-                if (Event.GetComponent<State>().Dress_Top != 5)
+                if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top != 5)
                 {
-                    Event.GetComponent<State>().Dress_Top = 5;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 5;
                     Top = true;
                 }
-                else if (Event.GetComponent<State>().Dress_Top == 5)
+                else if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 5)
                 {
-                    Event.GetComponent<State>().Dress_Top = 0;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 0;
                     Top = false;
                 }
             }
             if (ButtonNum == 6)
             {
-                if (Event.GetComponent<State>().Dress_Top != 6)
+                if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top != 6)
                 {
-                    Event.GetComponent<State>().Dress_Top = 6;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 6;
                     Top = true;
                 }
-                else if (Event.GetComponent<State>().Dress_Top == 6)
+                else if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 6)
                 {
-                    Event.GetComponent<State>().Dress_Top = 0;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 0;
                     Top = false;
                 }
             }
             if (ButtonNum == 7)
             {
-                if (Event.GetComponent<State>().Dress_Top != 7)
+                if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top != 7)
                 {
-                    Event.GetComponent<State>().Dress_Top = 7;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 7;
                     Top = true;
                 }
-                else if (Event.GetComponent<State>().Dress_Top == 7)
+                else if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 7)
                 {
-                    Event.GetComponent<State>().Dress_Top = 0;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 0;
                     Top = false;
                 }
             }
             if (ButtonNum == 8)
             {
-                if (Event.GetComponent<State>().Dress_Top != 8)
+                if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top != 8)
                 {
-                    Event.GetComponent<State>().Dress_Top = 8;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 8;
                     Top = true;
                 }
-                else if (Event.GetComponent<State>().Dress_Top == 8)
+                else if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top == 8)
                 {
-                    Event.GetComponent<State>().Dress_Top = 0;
+                    Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 0;
                     Top = false;
                 }
             }
@@ -145,7 +145,7 @@ public class Select_button : MonoBehaviour
             if (ButtonNum == 1)
             {
                 Check_Message.SetActive(true);
-                Check_text.text = "정말 돌리시겠습니까?";
+                Check_text.text = "500골드가 소모됩니다.";
             }
             if (ButtonNum == 2)
             {

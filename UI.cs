@@ -9,6 +9,6 @@ public class UI : MonoBehaviour
 
     void Update()
     {
-        Gold.text = this.GetComponent<State>().Gold.ToString();
+        Gold.text = this.GetComponent<Data_Manager>().nowData.Money.ToString();
     }
 }
