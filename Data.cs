@@ -8,5 +8,6 @@ public class Data
     public int Money;
     public List<string> Item;
 
+    public float Timer;
     public int Dressed_Top;
 }
