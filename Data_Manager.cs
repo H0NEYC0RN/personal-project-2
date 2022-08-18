@@ -15,13 +15,15 @@ public class Data_Manager : MonoBehaviour
         //게임오브젝트가 다른 Scnen으로 전환되어도 파괴되지 않도록 함
         DontDestroyOnLoad(this.gameObject);
 
-        //초기 자금값 설정
+        //최초 실행시 초기 자금값 설정
         nowData.Money = 5000;
 
+        //데이터 경로 및 이름 지정
         Data_Path = Application.persistentDataPath + "/";
         Data_name = "Player_Data";
-
         string PL_Data = File.ReadAllText(Data_Path + Data_name);
+
+        //데이터 불러오기
         nowData = JsonUtility.FromJson<Data>(PL_Data);
         Debug.Log("First " + PL_Data);
     }
@@ -33,13 +35,18 @@ public class Data_Manager : MonoBehaviour
             Save();
         }
 
-        //정상 작동 확인용 임시 돈치트
+        //정상 작동 확인용 임시 치트
         if (Input.GetKeyDown(KeyCode.E))
         {
             nowData.Money += 500;
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            nowData.Item.Clear();
+            this.GetComponent<Data_Manager>().nowData.Timer_Actived = false;
+        }
     }
-
+    
     private void Save()
     {
         string PL_Data = JsonUtility.ToJson(nowData);
@@ -47,8 +54,9 @@ public class Data_Manager : MonoBehaviour
 
         Debug.Log(PL_Data);
 
+        //자동 저장 주기 조정
         Save_Delay = true;
-        Invoke("Save_Delay_ON", 3f);
+        Invoke("Save_Delay_ON", 2f);
     }
 
     private void Save_Delay_ON()

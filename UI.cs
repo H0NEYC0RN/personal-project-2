@@ -12,15 +12,24 @@ public class UI : MonoBehaviour
 
     void Update()
     {
+        Scean_num = GameObject.Find("Scean_Manager").GetComponent<Scean_num>().SceanNum;
+
         if (Scean_num == 1)
         {
             Gold.text = this.GetComponent<Data_Manager>().nowData.Money.ToString();
+            Gold = GameObject.Find("Gold_Text").GetComponent<Text>();
         }
         if (Scean_num == 2)
         {
-            if (this.GetComponent<Timer>().Time_current < 60)
+            Timer_Text = GameObject.Find("Time_Text").GetComponent<Text>();
+
+            if(this.GetComponent<Data_Manager>().nowData.Timer_Actived == false)
             {
-                Timer_Text.text = $"{this.GetComponent<Timer>().Time_current * 60:N0}" + " 초째";
+                Timer_Text.text = "";
+            }
+            else if (this.GetComponent<Timer>().Time_current < 1)
+            {
+                Timer_Text.text = $"{this.GetComponent<Timer>().Time_current * 60 :N0}" + " 초째";
             }
             else if (this.GetComponent<Timer>().Time_current < this.GetComponent<Timer>().Time_Max)
             {

@@ -14,6 +14,7 @@ public class Dress : MonoBehaviour
 
     void Start()
     {
+        Event = GameObject.Find("EventSystem");
         Render = this.GetComponent<SpriteRenderer>();
     }
 

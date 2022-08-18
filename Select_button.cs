@@ -5,14 +5,19 @@ using UnityEngine.UI;
 
 public class Select_button : MonoBehaviour
 {
-    [SerializeField] GameObject Event;
-    [SerializeField] int Type; // 1 - Left&Right / 2 - Dress / 3 - Ghacha
-    [SerializeField] int ButtonNum; // Left - 1 Right - 2 / Dress 1 ~ 8 / Yes -1 No - 2
+    private GameObject Event;
+    [SerializeField] int Type; // 1 - Left&Right / 2 - Dress / 3 - Ghacha / 4 - Adventrue
+    [SerializeField] int ButtonNum; // Left - 1 Right - 2 / Dress 1 ~ 8 / Check - 1 Yes - 2 No - 3
 
     [SerializeField] GameObject Check_Message;
     [SerializeField] Text Check_text;
 
     private bool Top;
+
+    private void Start()
+    {
+        Event = GameObject.Find("EventSystem");
+    }
 
     private void OnMouseUp()
     {
@@ -37,7 +42,7 @@ public class Select_button : MonoBehaviour
         {
             if (ButtonNum == 1)
             {
-                if (GetComponent<Data_Manager>().nowData.Dressed_Top != 1)
+                if (Event.GetComponent<Data_Manager>().nowData.Dressed_Top != 1)
                 {
                     Event.GetComponent<Data_Manager>().nowData.Dressed_Top = 1;
                     Top = true;
@@ -150,6 +155,24 @@ public class Select_button : MonoBehaviour
             if (ButtonNum == 2)
             {
                 Event.GetComponent<Ghacha>().isActived = true;
+                Check_Message.SetActive(false);
+            }
+            if (ButtonNum == 3)
+            {
+                Check_Message.SetActive(false);
+            }
+        }
+        if (Type == 4) // Adventure
+        {
+            if (ButtonNum == 1)
+            {
+                Check_Message.SetActive(true);
+                Check_text.text = "탐사 진행시,\n의상 변경이 불가능합니다.\n\n최대 탐사 가능 시간\n= 24시간";
+            }
+            if (ButtonNum == 2)
+            {
+                GameObject.Find("EventSystem").GetComponent<Timer>().Start_Timer = true;
+                GameObject.Find("EventSystem").GetComponent<Data_Manager>().nowData.Timer_Actived = true;
                 Check_Message.SetActive(false);
             }
             if (ButtonNum == 3)

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class List : MonoBehaviour
 {
-    [SerializeField] GameObject Event;
+    private GameObject Event;
+
     [SerializeField] Sprite List_1;
     [SerializeField] Sprite List_2;
     [SerializeField] Sprite List_3;
@@ -14,6 +15,7 @@ public class List : MonoBehaviour
 
     void Start()
     {
+        Event = GameObject.Find("EventSystem");
         Render = this.GetComponent<SpriteRenderer>();
     }
 

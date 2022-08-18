@@ -10,6 +10,7 @@ public class Category : MonoBehaviour
     [SerializeField] Text Category_text;
     [SerializeField] bool Category_Active;
     public int Category_num = 1;
+
     void Start()
     {
         if (Category_Active == true)
