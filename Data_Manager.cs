@@ -10,14 +10,16 @@ public class Data_Manager : MonoBehaviour
     private string Data_name;
     private bool Save_Delay = false;
 
+    public int First_Money = 1000;
+
     private void Awake()
     {
         //게임오브젝트가 다른 Scnen으로 전환되어도 파괴되지 않도록 함
         DontDestroyOnLoad(this.gameObject);
 
         //최초 실행시 초기 자금값 설정
-        nowData.Money = 5000;
-
+        nowData.Money = First_Money;
+        
         //데이터 경로 및 이름 지정
         Data_Path = Application.persistentDataPath + "/";
         Data_name = "Player_Data";
@@ -33,17 +35,6 @@ public class Data_Manager : MonoBehaviour
         if (Save_Delay == false)
         {
             Save();
-        }
-
-        //정상 작동 확인용 임시 치트
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            nowData.Money += 500;
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            nowData.Item.Clear();
-            this.GetComponent<Data_Manager>().nowData.Timer_Actived = false;
         }
     }
     

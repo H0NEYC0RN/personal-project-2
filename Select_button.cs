@@ -162,22 +162,39 @@ public class Select_button : MonoBehaviour
                 Check_Message.SetActive(false);
             }
         }
+
         if (Type == 4) // Adventure
         {
-            if (ButtonNum == 1)
+            if (Event.GetComponent<Data_Manager>().nowData.Timer_Actived == false)
             {
-                Check_Message.SetActive(true);
-                Check_text.text = "탐사 진행시,\n의상 변경이 불가능합니다.\n\n최대 탐사 가능 시간\n= 24시간";
-            }
-            if (ButtonNum == 2)
-            {
-                GameObject.Find("EventSystem").GetComponent<Timer>().Start_Timer = true;
-                GameObject.Find("EventSystem").GetComponent<Data_Manager>().nowData.Timer_Actived = true;
-                Check_Message.SetActive(false);
-            }
-            if (ButtonNum == 3)
-            {
-                Check_Message.SetActive(false);
+                if (Event.GetComponent<Timer>().Reward_A == true)
+                {
+                    if (ButtonNum == 1)
+                    {
+                        //보상관련코드
+                        Debug.Log("보상수령완료");
+                        Event.GetComponent<Timer>().Reward_A = false;
+                    }
+                }
+                else
+                {
+                    if (ButtonNum == 1)
+                    {
+                        Check_Message.SetActive(true);
+                        Check_text.text = "탐사 진행시,\n의상 변경이 불가능합니다.\n\n최대 탐사 가능 시간\n= 24시간";
+                    }
+                    if (ButtonNum == 2)
+                    {
+                        Event.GetComponent<Timer>().Start_Timer = true;
+                        Event.GetComponent<Data_Manager>().nowData.Timer_Actived = true;
+                        Check_Message.SetActive(false);
+                    }
+                    if (ButtonNum == 3)
+                    {
+                        Check_Message.SetActive(false);
+                    }
+                }
+
             }
         }
     }

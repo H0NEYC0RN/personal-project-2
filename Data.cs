@@ -7,6 +7,7 @@ public class Data
 {
     public int Money;
     public List<string> Item;
+    public List<string> Set_Item;
 
     public float Timer_start;
     public bool Timer_Actived;

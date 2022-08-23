@@ -6,31 +6,21 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
 
-    public float Time_Max = 1440;
+    public float Time_Max;
     public float Time_start;
     public float Time_current;
-
-    private bool isEnded = false;
     public bool Start_Timer = false;
 
+    private bool isEnded = false;
+    public bool Reward_A = false;
+
+
+
     private void Update()
-    {
-        //Timer 시작용 체크용 임시 코드
-        if ( Input.GetKeyDown(KeyCode.Space) )
-        {
-            this.GetComponent<Data_Manager>().nowData.Timer_Actived = true;
-        }
-        
+    { 
         if (Start_Timer)
         {
-            if (!isEnded)
-            {
-                Reset_Timer();
-            }
-            if (isEnded)
-            {
-                return;
-            }
+            Reset_Timer();
         }
 
         if (this.GetComponent<Data_Manager>().nowData.Timer_Actived)
@@ -56,6 +46,7 @@ public class Timer : MonoBehaviour
 
     private void End_Timer()
     {
+        Reward_A = true;
         Time_current = Time_Max;
         isEnded = true;
         this.GetComponent<Data_Manager>().nowData.Timer_Actived = false;
